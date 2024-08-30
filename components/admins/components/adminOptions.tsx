@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ExtendedGroupType, useFeeEstimation, useTx } from "@/hooks";
 import { ParamsSDKType } from "@chalabi/manifestjs/dist/codegen/strangelove_ventures/poa/v1/params";
-import { UpdateAdminModal } from "../modals/updateAdminModal";
+import { UpdateAdminModal } from "@/components";
 
 import { BsThreeDots } from "react-icons/bs";
 import { DescriptionModal } from "../modals/descriptionModal";
@@ -26,7 +26,7 @@ export default function AdminOptions({
   isLoading,
   address,
   admin,
-}: AdminOptionsProps) {
+}: Readonly<AdminOptionsProps>) {
   const exitEnabled = true;
 
   const handleOpen = () => {
@@ -54,8 +54,7 @@ export default function AdminOptions({
       sender: admin ?? "",
       params: {
         admins: poaParams.admins,
-        allowValidatorSelfExit:
-          poaParams.allow_validator_self_exit === true ? false : true,
+        allowValidatorSelfExit: !poaParams.allow_validator_self_exit,
       },
     });
 
@@ -71,7 +70,7 @@ export default function AdminOptions({
       proposers: [address ?? ""],
       title: `Update Self Exit`,
       summary: `This proposal will ${
-        poaParams.allow_validator_self_exit === true ? "enable" : "disable"
+        poaParams.allow_validator_self_exit ? "enable" : "disable"
       } the ability to leave the active set.`,
       exec: 0,
     });
