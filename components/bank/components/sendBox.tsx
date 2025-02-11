@@ -51,13 +51,6 @@ export default React.memo(function SendBox({
         prefix: 'osmo',
         chainID: env.osmosisChainId,
       },
-      {
-        id: env.axelarChain,
-        name: 'Axelar',
-        icon: 'https://github.com/cosmos/chain-registry/raw/refs/heads/master/axelar/images/axl.svg',
-        prefix: 'axelar',
-        chainID: env.axelarChainId,
-      },
     ],
     []
   );

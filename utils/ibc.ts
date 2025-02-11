@@ -8,9 +8,8 @@ import {
   ibc as manifestIbc,
 } from 'chain-registry/testnet/manifesttestnet';
 import { assets as osmosisAssets, ibc as osmosisIbc } from 'chain-registry/testnet/osmosistestnet';
-import { assets as axelarAssets, ibc as axelarIbc } from 'chain-registry/testnet/axelartestnet';
 
-const assets: AssetList[] = [manifestAssets, osmosisAssets, axelarAssets];
+const assets: AssetList[] = [manifestAssets, osmosisAssets];
 
 export const truncateDenom = (denom: string) => {
   return denom.slice(0, 10) + '...' + denom.slice(-6);
@@ -70,7 +69,7 @@ export const prettyBalance = (chainName: string, balance: Coin) => {
 
 export type PrettyBalance = ReturnType<typeof prettyBalance>;
 
-const ibcData: IBCInfo[] = [...manifestIbc, ...osmosisIbc, ...axelarIbc];
+const ibcData: IBCInfo[] = [...manifestIbc, ...osmosisIbc];
 
 export const getIbcInfo = (fromChainName: string, toChainName: string) => {
   let flipped = false;

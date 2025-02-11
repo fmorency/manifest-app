@@ -230,7 +230,7 @@ export default function GroupControls({
   }
 
   const { address } = useChain(env.chain);
-  const chains = useChains([env.chain, env.osmosisChain, env.axelarChain]);
+  const chains = useChains([env.chain, env.osmosisChain]);
   const { groupByMemberData } = useGroupsByMember(address ?? '');
 
   useEffect(() => {

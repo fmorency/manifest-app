@@ -120,9 +120,7 @@ export default function IbcSendForm({
           if (!value) return true;
           return selectedToChain.id === env.osmosisChain
             ? value.startsWith('osmo')
-            : selectedToChain.id === env.axelarChain
-              ? value.startsWith('axelar')
-              : value.startsWith('manifest');
+            : value.startsWith('manifest');
         }
       ),
     amount: Yup.number()
