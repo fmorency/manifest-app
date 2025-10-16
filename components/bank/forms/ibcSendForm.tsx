@@ -160,7 +160,8 @@ function IbcSendForm({ token }: { token: string }) {
       },
     },
     success: {
-      text: '#4caf50',
+      background: '#4caf50',
+      text: '#ffffff',
     },
     warning: {
       background: '#ffb300',
